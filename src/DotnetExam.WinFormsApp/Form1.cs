@@ -17,7 +17,7 @@ namespace DotnetExam.WinFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "Listado de alumnos";
+            this.Text = "Listado de alumnos ";
 
 
         }
