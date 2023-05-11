@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DotnetExam.Entities;
 
 namespace DotnetExam.Entities
 {
-    public static class MateriaGenerador
+    public class MateriaGenerador
     {
-        public static List<Materia> Generar(int cantidad, int alumnosPorMateria) {
+        public List<Materia> Generar(int cantidad, int alumnosPorMateria) {
 
             var materias = new List<Materia>();
 
@@ -25,6 +26,9 @@ namespace DotnetExam.Entities
                 {
                     materia.Alumnos.Add(new Alumno() { 
                         AlumnoId = a,
+                        Id = a,
+                        Nombre = $"Nombre{a}",
+                        Apellido = $"Apellido{a}",
                         Legajo = $"M{i}-{a.ToString().PadLeft(6, '0')}/23",
                         Nota = rnd.Next(1, 10)
                     });

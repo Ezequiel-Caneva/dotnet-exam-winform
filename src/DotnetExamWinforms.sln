@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetExam.Tests", "..\test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetExam.Entities", "DotnetExam.Entities\DotnetExam.Entities.csproj", "{5EF4B39C-7280-406B-8613-E80CB3EF038E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetExam.WinFormsApp", "DotnetExam.WinFormsApp\DotnetExam.WinFormsApp.csproj", "{FC66F1FF-E057-4DD2-8181-BA7C77529BB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetExam.WinFormsApp", "DotnetExam.WinFormsApp\DotnetExam.WinFormsApp.csproj", "{FC66F1FF-E057-4DD2-8181-BA7C77529BB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -28,50 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            dataGridView1 = new DataGridView();
-            dataGridView2 = new DataGridView();
-            textBox1 = new TextBox();
+            components = new System.ComponentModel.Container();
+            dgvMaterias = new DataGridView();
+            materiaIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            materiaBindingSource = new BindingSource(components);
+            dgvAlumnos = new DataGridView();
+            txtBuscador = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            lblAlumnos = new Label();
+            btnBuscar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvMaterias).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)materiaBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // dgvMaterias
             // 
-            button1.Location = new Point(378, 29);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
+            dgvMaterias.AutoGenerateColumns = false;
+            dgvMaterias.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMaterias.Columns.AddRange(new DataGridViewColumn[] { materiaIdDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn });
+            dgvMaterias.DataSource = materiaBindingSource;
+            dgvMaterias.Location = new Point(12, 92);
+            dgvMaterias.Name = "dgvMaterias";
+            dgvMaterias.RowTemplate.Height = 25;
+            dgvMaterias.Size = new Size(243, 346);
+            dgvMaterias.TabIndex = 1;
+            dgvMaterias.CellClick += dgvMaterias_CellClick;
+            dgvMaterias.CellContentClick += dgvMaterias_CellContentClick;
             // 
-            // dataGridView1
+            // materiaIdDataGridViewTextBoxColumn
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 92);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(360, 346);
-            dataGridView1.TabIndex = 1;
+            materiaIdDataGridViewTextBoxColumn.DataPropertyName = "MateriaId";
+            materiaIdDataGridViewTextBoxColumn.HeaderText = "MateriaId";
+            materiaIdDataGridViewTextBoxColumn.Name = "materiaIdDataGridViewTextBoxColumn";
             // 
-            // dataGridView2
+            // nombreDataGridViewTextBoxColumn
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(409, 92);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(360, 346);
-            dataGridView2.TabIndex = 2;
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             // 
-            // textBox1
+            // materiaBindingSource
             // 
-            textBox1.Location = new Point(12, 30);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(360, 23);
-            textBox1.TabIndex = 3;
+            materiaBindingSource.DataSource = typeof(Entities.Materia);
+            // 
+            // dgvAlumnos
+            // 
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvAlumnos.BackgroundColor = SystemColors.ControlLightLight;
+            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAlumnos.Location = new Point(314, 92);
+            dgvAlumnos.Name = "dgvAlumnos";
+            dgvAlumnos.RowTemplate.Height = 25;
+            dgvAlumnos.Size = new Size(360, 346);
+            dgvAlumnos.TabIndex = 2;
+            dgvAlumnos.CellFormatting += dgvAlumnos_CellFormatting;
+            // 
+            // txtBuscador
+            // 
+            txtBuscador.Location = new Point(12, 30);
+            txtBuscador.Name = "txtBuscador";
+            txtBuscador.Size = new Size(360, 23);
+            txtBuscador.TabIndex = 3;
             // 
             // label1
             // 
@@ -91,43 +112,59 @@
             label2.TabIndex = 5;
             label2.Text = "Materias";
             // 
-            // label3
+            // lblAlumnos
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(409, 74);
-            label3.Name = "label3";
-            label3.Size = new Size(171, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Alumnos de la materia XXXXXX";
+            lblAlumnos.AutoSize = true;
+            lblAlumnos.Location = new Point(314, 74);
+            lblAlumnos.Name = "lblAlumnos";
+            lblAlumnos.Size = new Size(171, 15);
+            lblAlumnos.TabIndex = 6;
+            lblAlumnos.Text = "Alumnos de la materia XXXXXX";
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = SystemColors.ActiveCaption;
+            btnBuscar.ForeColor = SystemColors.ControlText;
+            btnBuscar.Location = new Point(378, 29);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(91, 24);
+            btnBuscar.TabIndex = 0;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label3);
+            Controls.Add(lblAlumnos);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView2);
-            Controls.Add(dataGridView1);
-            Controls.Add(button1);
+            Controls.Add(txtBuscador);
+            Controls.Add(dgvAlumnos);
+            Controls.Add(dgvMaterias);
+            Controls.Add(btnBuscar);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvMaterias).EndInit();
+            ((System.ComponentModel.ISupportInitialize)materiaBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
-        private TextBox textBox1;
+        private DataGridView dgvMaterias;
+        private DataGridView dgvAlumnos;
+        private TextBox txtBuscador;
         private Label label1;
         private Label label2;
-        private Label label3;
+        private Label lblAlumnos;
+        private DataGridViewTextBoxColumn materiaIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private BindingSource materiaBindingSource;
+        private Button btnBuscar;
     }
 }
