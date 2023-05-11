@@ -69,8 +69,7 @@ namespace DotnetExam.WinFormsApp
             dt = new DataTable();
             dt.Columns.Add("Nombre Completo");
             dt.Columns.Add("Nota");
-            dt.Columns.Add("Aprobado");
-
+            
             foreach (var lista in alumnos)
             {
                 foreach (var alumno in lista)

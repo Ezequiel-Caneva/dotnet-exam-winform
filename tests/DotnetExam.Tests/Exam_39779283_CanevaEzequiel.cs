@@ -2,7 +2,7 @@ using DotnetExam.Entities;
 
 namespace DotnetExam.Tests
 {
-    public class Exam_DNIXXX_APELLIDOYYY
+    public class Exam_39779283_CanevaEzequiel
     {
 
 
